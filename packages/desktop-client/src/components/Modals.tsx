@@ -35,6 +35,7 @@ import { CoverModal } from './modals/CoverModal';
 import { CreateAccountModal } from './modals/CreateAccountModal';
 import { CreateEncryptionKeyModal } from './modals/CreateEncryptionKeyModal';
 import { CreateLocalAccountModal } from './modals/CreateLocalAccountModal';
+import { CreateRulesForPayeesModal } from './modals/CreateRulesForPayeesModal';
 import { EditUserAccess } from './modals/EditAccess';
 import { EditFieldModal } from './modals/EditFieldModal';
 import { EditRuleModal } from './modals/EditRuleModal';
@@ -186,6 +187,9 @@ export function Modals() {
 
         case 'edit-rule':
           return <EditRuleModal key={key} {...modal.options} />;
+
+        case 'create-rules-for-payees':
+          return <CreateRulesForPayeesModal key={key} {...modal.options} />;
 
         case 'merge-unused-payees':
           return <MergeUnusedPayeesModal key={key} {...modal.options} />;

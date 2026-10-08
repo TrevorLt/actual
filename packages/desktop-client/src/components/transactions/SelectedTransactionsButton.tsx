@@ -355,6 +355,14 @@ export function SelectedTransactionsButton({
                       name: 'create-rule',
                       text: t('Create rule'),
                     } as const,
+                    ...(selectedIds.length > 1 && !types.preview
+                      ? [
+                          {
+                            name: 'create-rules-for-payees',
+                            text: t('Create rules for payees…'),
+                          } as const,
+                        ]
+                      : []),
                     {
                       name: 'run-rules',
                       text: t('Run Rules'),
@@ -446,6 +454,16 @@ export function SelectedTransactionsButton({
             break;
           case 'create-rule':
             onCreateRule(selectedIds);
+            break;
+          case 'create-rules-for-payees':
+            dispatch(
+              pushModal({
+                modal: {
+                  name: 'create-rules-for-payees',
+                  options: { transactionIds: selectedIds },
+                },
+              }),
+            );
             break;
           case 'run-rules':
             onRunRules(selectedIds);

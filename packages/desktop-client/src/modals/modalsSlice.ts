@@ -113,6 +113,10 @@ export type Modal =
       };
     }
   | {
+      name: 'create-rules-for-payees';
+      options: { transactionIds: string[] };
+    }
+  | {
       name: 'merge-unused-payees';
       options: {
         payeeIds: string[];
